@@ -1,0 +1,19 @@
+{
+  "name": "ecmascript",
+  "version": "1.0.0",
+  "description": "Entendiendo EcmaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeyfredc/EcmaScript6.git"
+  },
+  "author": "Jeyfred Calderon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeyfredc/EcmaScript6/issues"
+  },
+  "homepage": "https://github.com/jeyfredc/EcmaScript6#readme"
+}
