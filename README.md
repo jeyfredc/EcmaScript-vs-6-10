@@ -14,6 +14,8 @@
 
 [Async Await](#Async-Await)
 
+[¿Qué se implementó en ES9?](#¿Qué-se-implementó-en-ES9)
+
 Entender que modificaciones se han realizado en cada una de las versiones de la especificacion de Ecma Script la cual pertenece a estandares que ha desarrollado Ecma International, la cual es una institucion encargada de los estandares. JavaScript es el lenguaje de programacion que utiliza la especificacion Ecma Script para trabajar sobre las caracteristicas que van siendo añadidas año con año a partir del 2015 que fue lanzada la version 6, despues de que lanzaron la version 6 empezo a salir ES7, ES8, ES9, etc.
 
 **Nota:** cada version lanza nuevas caracteristicas y generalmente es lanzada en el mes de junio año tras año 
@@ -649,3 +651,128 @@ anotherFunction();
 Si se quiere capturar un error cambiar `true` por `false`
 
 Para entender mejor estos conceptos visitar el siguiente [enlace](https://platzi.com/tutoriales/1789-asincronismo-js/5063-las-promesas-y-async-await-logicamente-no-son-iguales-y-te-explico-el-porque/)
+
+## ¿Qué se implementó en ES9?
+
+En la version 9 lanzada en junio de 2018 donde se incluyo Spread Operator, Propagation properties, promise finally y otras caracteristicas mas.
+
+Dentro de la carpeta **src** crear una subcarpeta que se llame **es9** y alli el archivo **index.js**
+
+Generar un objeto y con el operador en reposo o Spread Opetator que son `...all` lo que se hace es separar los elementos, de esta forma al hacer console.log lo primero que se hace es traer el elemento `name` separado de los elementos `age` y `country` 
+
+```
+const obj = {
+    name : 'Jeyfred',
+    age: 26,
+    country: 'COL',
+};
+
+let { name, ...all } = obj;
+console.log(name, all);
+```
+
+![assets/28.png](assets/28.png)
+
+tambien se puede extraer elementos para que no aparezcan de la siguiente forma 
+
+```
+const obj = {
+    name : 'Jeyfred',
+    age: 26,
+    country: 'COL',
+};
+
+/* let { name, ...all } = obj;
+console.log(name, all); */
+
+let { country, ...all} = obj;
+console.log(all);
+```
+
+![assets/29.png](assets/29.png)
+
+otra de las caracteristicas añadidas son las propiedades de propagacion o propagation properties que permite unir 1,2,3 o los elementos que se puedan requerir de objetos a un nuevo objeto
+
+```
+const obj = {
+    name: 'Jeyfred',
+    age: 26,
+}
+
+const obj1 = {
+    ...obj,
+    country: 'COL',
+}
+
+console.log(obj1);
+```
+
+![assets/30.png](assets/30.png)
+
+Otra caracteristica añadida es `promise.finally` que sirve para saber cuando se ha terminado un llamado y poder ejecutar alguna funcion o logica de codigo segun sea el caso
+
+lo primero que hay que hacer es generar la promesa
+
+```
+const helloWorld = () = => {
+    return new Promise((resolve, reject) => {
+        (true)
+        ? resolve('Hello World')
+        : reject(new Error('Test Error'))
+    });
+};
+```
+
+luego de esto hacer el llamado de la funcion con las palabras reservadas que anteriormente se habian visto las cuales son `then` y `catch`, pero a partir de esta version se lanza `finally` para que cuando se ejecute la funcion el programa avise que capturo la respuesta en caso de ejecutar bien o mal y tambien informe que finalizo
+
+```
+helloWorld()
+    .then(response => console.log(response))
+    .catch(error => console.log(error))
+    .finally(() => console.log('Finalizo'));
+```
+
+![assets/31.png](assets/31.png)
+
+tambien se puede establecer añadiendo tiempo con la funcion `setTimeout` y para ver otro caso cambiando `true` por `false`
+```
+const helloWorld = () => {
+    return new Promise((resolve, reject) => {
+        (false)
+        /* ? resolve('Hello World') */
+        ? setTimeout(() => resolve('Hello World'), 5000)
+        : reject(new Error('Test Error'))
+    });
+};
+
+helloWorld()
+    .then(response => console.log(response))
+    .catch(error => console.log(error))
+    .finally(() => console.log('Finalizo'));
+```
+
+![assets/32.png](assets/32.png)
+
+Otra de las caracteristicas añadidas son mejoras para agrupar bloques de Regex y poder acceder a cada uno de ellos
+
+Para esto primero se crea una constante que permitira generar el Regex, este va a ser una constitucion de manejo de fechas partiendo primero por el año, despues por el mes y por ultimo el dia
+
+`const regexData = /([0-9]{4})-([0-9]{2})-([0-9]{2})/`
+
+Luego hay que hacer match sobre la variable y pasarle un valor 
+
+`const match = regexData.exec('2020-11-20');`
+
+y luego obtener ada uno de los valores para al final imprimir el valor pasado en la constante `match`
+
+```
+const year = match[1];
+const month = match[1];
+const day = match[1];
+```
+
+luego hacer un `console.log` para capturar cada uno de los valores 
+
+`console.log(year, month, day);`
+
+![assets/33.png](assets/33.png)
