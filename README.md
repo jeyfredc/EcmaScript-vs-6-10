@@ -8,6 +8,8 @@
 
 [Clases, Módulos y Generadores](#Clases-Módulos-y-Generadores)
 
+[¿Qué se implementó en ES7?](#¿Qué-se-implementó-en-ES7?)
+
 Entender que modificaciones se han realizado en cada una de las versiones de la especificacion de Ecma Script la cual pertenece a estandares que ha desarrollado Ecma International, la cual es una institucion encargada de los estandares. JavaScript es el lenguaje de programacion que utiliza la especificacion Ecma Script para trabajar sobre las caracteristicas que van siendo añadidas año con año a partir del 2015 que fue lanzada la version 6, despues de que lanzaron la version 6 empezo a salir ES7, ES8, ES9, etc.
 
 **Nota:** cada version lanza nuevas caracteristicas y generalmente es lanzada en el mes de junio año tras año 
@@ -473,3 +475,31 @@ console.log(generatorHello.next().value);
 ![assets/20.png](assets/20.png)
 
 Hasta aqui vienen las caracteristicas añadidas de ES6 la cual salio en el año 2015
+
+## ¿Qué se implementó en ES7?
+
+En la version 7 se establecieron nuevas funciones las cuales son include y operaciones en forma exponencial para esto, dentro de la carpeta **src** crear una subcarpeta llamada **es7** y dentro de la carpeta crear un archivo llamado **index.js**
+
+El metodo include trabaja sobre un array o string y permite saber si hay un elemento dentro del valor, para esto se construye un array de numeros `let numbers = [1,2,3,7,8];` y ahora lo que se va a hacer es validar si el numero 7 esta en el array
+
+```
+if(numbers.includes(7)){
+    console.log('Si se encuentra el numero 7');
+}else{
+    console.log('El numero 7 no esta dentro del Array');
+}
+```
+
+![assets/21.png](assets/21.png)
+
+otro de los valores disponibles son los exponentes para elevar un numero y esta disponible a traves del `**`
+
+```
+let base = 4;
+let exponent = 3;
+let result = base ** exponent;
+
+console.log(result);
+```
+
+![assets/22.png](assets/22.png)
