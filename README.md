@@ -6,6 +6,8 @@
 
 [Arrow Functions, Promesas y Parámetros en objetos](Arrow-Functions-Promesas-y-Parámetros-en-objetos)
 
+[Clases, Módulos y Generadores](#Clases-Módulos-y-Generadores)
+
 Entender que modificaciones se han realizado en cada una de las versiones de la especificacion de Ecma Script la cual pertenece a estandares que ha desarrollado Ecma International, la cual es una institucion encargada de los estandares. JavaScript es el lenguaje de programacion que utiliza la especificacion Ecma Script para trabajar sobre las caracteristicas que van siendo añadidas año con año a partir del 2015 que fue lanzada la version 6, despues de que lanzaron la version 6 empezo a salir ES7, ES8, ES9, etc.
 
 **Nota:** cada version lanza nuevas caracteristicas y generalmente es lanzada en el mes de junio año tras año 
@@ -353,3 +355,121 @@ helloPromise()
 Para hacerlo fallar se cambia `true` por `false` 
 
 ![assets/17.png](assets/17.png)
+
+## Clases, Módulos y Generadores
+
+Las clases permiten aplicar la POO(Programacion Orientada a Objetos) y trabajar de una manera mas facil con los objetos en JavaScript
+
+primero se debe definir el nombre de la clase utilizando la palabra reservada `class`, despues de esto establecer un metodo constructor con la palabra reservada `constructor(){}` y dentro de las llaves asignar las variables que en este caso estaran disponibles en el scope global.
+
+Posteriormente se crea el metodo `sum()` el cual recibe los dos valores, se establecen los parametros, por convencion generalmente lo que esta dentro de los parametros se llaman igual que las variables del constructor pero estas se pueden llamar de forma distinta, dentro del metodo al final devuelve el valor del valor A + el valor B con `return`.
+
+Para inicializar la clase se crea el objeto, generalmente con la palabra reservada `const` el nombre del objeto que en este caso es `calc` y para que el objeto pueda adquirir valores seguido del signo `=` la palabra `new` y el nombre de la clase `Calculator`.
+
+Luego se hace el llamado del metodo a traves de `console.log(objeto.metodo(valores del parametro del metodo))`
+
+```
+class Calculator {
+    constructor(){
+        this.valueA = 0;
+        this.valueB = 0;
+    }
+
+    sum(valueA, valueB){
+        this.valueA = valueA;
+        this.valueB = valueB;
+        return this.valueA + this.valueB;
+    }
+}
+
+const calc = new Calculator();
+console.log(calc.sum(5,10));
+```
+
+![assets/18.png](assets/18.png)
+
+para entender mas conceptos sobre POO en este enlace se encuentran los apuntes de [Programacion Orientada a Objetos](https://github.com/jeyfredc/Programacion-orientada-a-objetos-POO-) en diferentes lenguajes ademas de JavaScript
+
+___
+
+otro de los conceptos utilizados es `import` y `export`, los cuales se utilizan cuando se empieza a trabajar con modulos.
+
+Para esto dentro de la carpeta **es6** crear un nuevo archivo llamado **module.js**
+
+Crear la funcion `hello(){}` y retornar la palabra `Hello!`
+
+```
+function hello() {
+	return 'Hello!'
+}
+
+export default hello
+```
+
+Ahora dentro del archivo **index.js** se utiliza la palabra reservada `import` entre el nombre del arrow function que es `{ hello }` y utilizar `from` para indicar de donde viene y establecer la ruta que seria la del archivo `./module`
+
+```
+import { hello } from './module'
+
+hello();
+```
+
+En caso de no funcionar se puede agregar lo siguiente a **module.js**
+
+```
+const hello = () => {
+	return 'hello!'
+}
+
+/* export default hello; */
+
+module.exports = hello;
+```
+
+y en el archivo **index.js**
+
+```
+/* import { hello } from './module'
+
+console.log(hello()) */
+
+const hello = require('./module');
+
+console.log(hello());
+```
+
+De esta forma estara disponible la arrow function y se podra ejecutar
+
+![assets/19.png](assets/19.png)
+
+___
+
+### Generators
+
+Es una funcion especial que retorna una serie de valores segun el algoritmo definido, como es una funcion especial su sintaxis es con `function*` cuando va de esta forma quiere decir que es un generador despues se hacen validaciones y la palabra reservada `yield` hace que el valor quede guardado de manera interna en memoria y sea posible recordarla cuando se haga el llamado de la funcion
+
+Lo primero que se hace es establecer la funcion asi 
+
+```
+function* helloWorld(){
+    if(true) {
+        yield 'Hello, ';
+    }
+    if(true){
+        yield 'World';
+    }
+};
+```
+
+para hacer el llamado de la funcion se declara una constante que sea igual a la funcion y con `console.log` y el metodo `next` se pasa a traves de los valores de cada if y el metodo `value` se encarga de traer el valor de cada `yield`. El ultimo valor que traiga al hacer `console.log` sera undefined porque no existe mas anidacion de if
+
+```
+const generatorHello = helloWorld();
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
+```
+
+![assets/20.png](assets/20.png)
+
+Hasta aqui vienen las caracteristicas añadidas de ES6 la cual salio en el año 2015
