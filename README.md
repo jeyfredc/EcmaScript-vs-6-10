@@ -8,7 +8,7 @@
 
 [Clases, Módulos y Generadores](#Clases-Módulos-y-Generadores)
 
-[¿Qué se implementó en ES7?](#¿Qué-se-implementó-en-ES7?)
+[¿Qué se implementó en ES7?](#¿Qué-se-implementó-en-ES7)
 
 Entender que modificaciones se han realizado en cada una de las versiones de la especificacion de Ecma Script la cual pertenece a estandares que ha desarrollado Ecma International, la cual es una institucion encargada de los estandares. JavaScript es el lenguaje de programacion que utiliza la especificacion Ecma Script para trabajar sobre las caracteristicas que van siendo añadidas año con año a partir del 2015 que fue lanzada la version 6, despues de que lanzaron la version 6 empezo a salir ES7, ES8, ES9, etc.
 
@@ -478,7 +478,7 @@ Hasta aqui vienen las caracteristicas añadidas de ES6 la cual salio en el año 
 
 ## ¿Qué se implementó en ES7?
 
-En la version 7 se establecieron nuevas funciones las cuales son include y operaciones en forma exponencial para esto, dentro de la carpeta **src** crear una subcarpeta llamada **es7** y dentro de la carpeta crear un archivo llamado **index.js**
+En la version 7 lanzada en junio de 2016 se establecieron nuevas funciones las cuales son include y operaciones en forma exponencial para esto, dentro de la carpeta **src** crear una subcarpeta llamada **es7** y dentro de la carpeta crear un archivo llamado **index.js**
 
 El metodo include trabaja sobre un array o string y permite saber si hay un elemento dentro del valor, para esto se construye un array de numeros `let numbers = [1,2,3,7,8];` y ahora lo que se va a hacer es validar si el numero 7 esta en el array
 
@@ -504,3 +504,75 @@ console.log(result);
 
 ![assets/22.png](assets/22.png)
 
+## ¿Qué se implementó en ES8?
+
+En la version 8 lanzada en junio de 2017 donde se incluyo Async Await y otras caracteristicas.
+
+Dentro de la carpeta **src** crear una subcarpeta que se llame **es8** y alli el archivo **index.js**
+
+Una de las caracteristicas añadidas es `Object.entries` el cual permite devolver la clave y valores de una matriz.
+
+Lo primero que se hace es establecer una constante `data` que permite establecer un objeto con varios valores.
+
+Despues se establece otra constante llamada `entries` y despues de esto se utiliza `Object.entries` con la constante `data` donde esta haciendo la transformacion a una matriz y luego se imprime la matriz a traves de la constante `entries`
+
+```
+const data = {
+    frontend: 'Diana',
+    backend: 'Jeyfred',
+    design: 'Vanessa',
+}
+
+const entries = Object.entries(data);
+console.log(entries);
+```
+
+![assets/23.png](assets/23.png)
+
+Para saber cuantos elementos tiene el arreglo a continuacion del console.log de la matriz se puede establecer
+
+`console.log(entries.lenght);`
+
+___
+
+Otra de las caracteristicas añadidas es `Object.values` el cual devuelve los valores de un objeto a un arreglo 
+
+```
+const data = {
+    frontend: 'Diana',
+    backend: 'Jeyfred',
+    design: 'Vanessa',
+}
+
+const values = Object.values(data);
+console.log(values);
+```
+
+![assets/24.png](assets/24.png)
+
+___
+
+Otra caracteristica añadida es el `padStart` la cual permite añadir cuantos elementos va a tener un string, el primer parametro es maxlenght y el segundo el argumento que se va a pasar a la variable son los caracteres que se quieren añadir, hello esta formado por 5 caracteres y hi por otros 2, estos se van añadir al principio como se muestra en el ejemplo a continuacion
+
+```
+const string = 'hello';
+console.log(string.padStart(7,'hi'));
+```
+
+![assets/25.png](assets/25.png)
+
+si por ejemplo se pasara por argumento mas caracteres 
+
+`console.log(string.padStart(7,'hiworld'));`
+
+Se seguira imprimiendo `hihello`.
+
+la otra caracteristica es con ` padEnd` el cual coloca los caracteres despues del string
+
+```
+const string = 'hello';
+console.log(string.padStart(7,'hi'));
+console.log(string.padEnd(12,' -----'));
+```
+
+![assets/26.png](assets/26.png)
