@@ -10,6 +10,10 @@
 
 [¿Qué se implementó en ES7?](#¿Qué-se-implementó-en-ES7)
 
+[¿Qué se implementó en ES8?](#¿Qué-se-implementó-en-ES8)
+
+[Async Await](#Async-Await)
+
 Entender que modificaciones se han realizado en cada una de las versiones de la especificacion de Ecma Script la cual pertenece a estandares que ha desarrollado Ecma International, la cual es una institucion encargada de los estandares. JavaScript es el lenguaje de programacion que utiliza la especificacion Ecma Script para trabajar sobre las caracteristicas que van siendo añadidas año con año a partir del 2015 que fue lanzada la version 6, despues de que lanzaron la version 6 empezo a salir ES7, ES8, ES9, etc.
 
 **Nota:** cada version lanza nuevas caracteristicas y generalmente es lanzada en el mes de junio año tras año 
@@ -576,3 +580,72 @@ console.log(string.padEnd(12,' -----'));
 ```
 
 ![assets/26.png](assets/26.png)
+
+## Async Await
+
+Lo primero que se debe hacer es generar una constante y nombrar la funcion `helloWorld`, despues un arrow function y crear una promesa.
+
+Esta debe contener `resolve` y `reject` y a traves de un if ternario establecer un `setTimeout` el cual recibe dos valores, el primero una funcion y el segundo el tiempo que son 3000 milisegundos, los cuales son 3 segundos, en caso contrario o de error arroja `Test Error`
+
+```
+const helloWorld = () => {
+    return new Promise((resolve, reject) =>{
+        (true)
+        ? setTimeout(() => resolve('Hello World'), 3000)
+        : reject(new Error('Test Error'))
+    })
+};
+```
+
+Async Await, permite ser mas claro a la hora de construir este tipo de funciones y trabajar de mejor forma con el asincronismo
+
+Ahora se crea una funcion llamada `helloAsync` y la forma de indentificar Async Await es porque seguido de esto esta `async ()` y dentro de los parametros tambien se podra identificar `await`.
+
+De esta forma hace el llamado, espera la consola y luego se imprime un resultado
+
+```
+const helloAsync = async () => {
+    const hello = await helloWorld();
+    console.log(hello);
+}
+```
+
+la forma de ejecutar la funcion es con 
+
+`helloAsync();`
+
+![assets/27.png](assets/27.png)
+
+otra forma de trabajar con Async await es con `Try catch` para esto se crea otra funcion y se establece
+
+```
+const helloWorld = () => {
+    return new Promise((resolve, reject) =>{
+        (true)
+        ? setTimeout(() => resolve('Hello World'), 3000)
+        : reject(new Error('Test Error'))
+    })
+};
+
+/* const helloAsync = async () => {
+    const hello = await helloWorld();
+    console.log(hello);
+}
+
+helloAsync(); */
+
+const anotherFunction = async () => {
+    try{
+        const hello = await helloWorld();
+        console.log(hello);
+    } catch (error){
+        console.log(error);
+    }
+};
+
+anotherFunction();
+```
+
+Si se quiere capturar un error cambiar `true` por `false`
+
+Para entender mejor estos conceptos visitar el siguiente [enlace](https://platzi.com/tutoriales/1789-asincronismo-js/5063-las-promesas-y-async-await-logicamente-no-son-iguales-y-te-explico-el-porque/)
