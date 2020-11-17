@@ -98,3 +98,144 @@ console.log(epicPhrase2);
 ![assets/6.png](assets/6.png)
 
 ## LET y CONST, Multilínea, Spread Operator y Desestructuración
+
+Otra de las cosas que cambia con ES6 es el multilinea es decir escribir palabras a traves de una variable y lo que antiguamente se hacia para hacer un salto de linea era colocar lo siguiente `\n` y luego concatenar con el signo `+` aqui un ejemplo.
+
+```
+let lorem = "Lorem Ipsum has been the industry's standard dummy \n"
++ "text ever since the 1500s,\n"
+```
+
+Ahora con ES6 se puede hacer uso de los template literals **``** y saltar de linea con dar un enter en el codigo de la siguiente forma
+
+```
+//Es6
+let lorem2 = `Esta es la primer linea de texto y ahora voy a pasar
+a segunda linea de texto generada para lorem2
+
+ahora pase a la cuarta linea`
+```
+
+Luego de esto se hace un `console.log` de cada una de las variables
+
+![assets/7.png](assets/7.png)
+
+___
+
+Ahora viene la desestructuración para esto se crea un objeto con una variable que se llame `person` la cual va a tener 3 elementos op atributos que van a ser el nombre, la edad y el pais y luego para acceder a cada uno de los elementos con `console.log` se llama al atributo o propiedad de `person` asi `(person.name, person.age, person.country)`.
+
+```
+let person = {
+    'name' : 'Jeyfred',
+    'age' : 26,
+    'country' : 'COL',
+
+}
+console.log(person.name, person.age, person.country);
+```
+
+Con Es6 se debe crear una constante de esta forma `let { name, age, country} = person;` y luego nuevamentecon console.log llamar a cada uno de los atributos directamete `console.log(name, age, country);` si se quiere quitar algun atributo como age o country se debe eliminar de la constante y de `console.log`
+
+```
+//Es6
+let { name, age, country} = person;
+console.log(name, age, country);
+```
+
+![assets/8.png](assets/8.png)
+
+___
+
+El operador de propagacion ayuda a unir elementos como por ejemplo arrays o arreglos. este operador esta representado en el codigo con `...variable`, aqui un ejemplo de como se haria de la forma anterior para unir elementos
+
+```
+let team1 = ['Jeyfred' , 'Valeria', 'Juan']
+
+let team2 = ['Oscar', 'Julian', 'Daniela']
+
+let education = ['David', 'Jeyfred' , 'Valeria', 'Juan' , 'Oscar', 'Julian', 'Daniela']
+
+console.log(education)
+```
+
+Con Es6 por medio de este llamado se pueden unir los elementos de manera mas simple
+
+```
+//Es6
+let education = ['David', ...team1, ...team2]
+
+console.log(education)
+```
+
+![assets/9.png](assets/9.png)
+
+___
+
+**Nota:** A partir de Es6 ya no se usa la palabra **var** para declarar variables porque al declarar una variable esta estaba disponible de forma global.
+
+Con la palabra **let** solo esta disponible en el Scope, es decir en el bloque de codigo que va a ser llamado
+
+por ejemplo aqui se va a declarar una variable con la palabra var y luego la palabra let
+
+```
+{
+    var globalVar = "Global Var";
+}
+
+{
+    let globalLet = "Global Let";
+}
+
+console.log(globalVar);
+
+console.log(globalLet);
+
+```
+
+Al hacer `consolo.log`, solo esta disponible la palabra Global Var, porque esta en el scope global, pero Global Let no se encuentra disponible porque solo funciona dentro del bloque de codigo
+
+![assets/10.png](assets/10.png)
+
+Para poder imprimir la otra palabra, se debe declarar console.log dentro del bloque asi
+
+```
+{
+    var globalVar = "Global Var";
+}
+
+{
+    let globalLet = "Global Let";
+    console.log(globalLet);
+}
+
+console.log(globalVar);
+
+```
+
+![assets/11.png](assets/11.png)
+
+___
+
+Otra de las cosas que cambia Es6 es la asignacion de variables, por ejemplo con la palabra **var** se podia asignar valores cuantas veces quisiera asi y al final imprimir el ultimo valor asignado a una variable
+
+```
+var a = "hello world";
+var a = 123456;
+var a = "hello world123456";
+
+console.log(a);
+```
+
+![assets/12.png](assets/12.png)
+
+Ahora con Es6 y la palabra reservada `const` ya no es posible re asignar una variable que este declarada y por tanto se va a imprimir un error
+
+```
+var a = "hello world";
+var a = 123456;
+var a = "hello world123456";
+
+console.log(a);
+```
+
+![assets/13.png](assets/13.png)
