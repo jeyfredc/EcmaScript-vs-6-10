@@ -4,6 +4,8 @@
 
 [LET y CONST, Multilínea, Spread Operator y Desestructuración](#LET-y-CONST-Multilínea-Spread-Operator-y-Desestructuración)
 
+[Arrow Functions, Promesas y Parámetros en objetos](Arrow-Functions-Promesas-y-Parámetros-en-objetos)
+
 Entender que modificaciones se han realizado en cada una de las versiones de la especificacion de Ecma Script la cual pertenece a estandares que ha desarrollado Ecma International, la cual es una institucion encargada de los estandares. JavaScript es el lenguaje de programacion que utiliza la especificacion Ecma Script para trabajar sobre las caracteristicas que van siendo añadidas año con año a partir del 2015 que fue lanzada la version 6, despues de que lanzaron la version 6 empezo a salir ES7, ES8, ES9, etc.
 
 **Nota:** cada version lanza nuevas caracteristicas y generalmente es lanzada en el mes de junio año tras año 
@@ -192,7 +194,7 @@ console.log(globalLet);
 
 ```
 
-Al hacer `consolo.log`, solo esta disponible la palabra Global Var, porque esta en el scope global, pero Global Let no se encuentra disponible porque solo funciona dentro del bloque de codigo
+Al hacer `console.log`, solo esta disponible la palabra Global Var, porque esta en el scope global, pero Global Let no se encuentra disponible porque solo funciona dentro del bloque de codigo
 
 ![assets/10.png](assets/10.png)
 
@@ -239,3 +241,115 @@ console.log(a);
 ```
 
 ![assets/13.png](assets/13.png)
+
+## Arrow Functions, Promesas y Parámetros en objetos
+
+Anteriormente para crear un objeto se debe acceder a la variable y a la propiedad de esta forma
+
+```
+let name = "Jeyfred";
+let age = 26;
+
+obj = {name: name , age:age}
+
+console.log(obj)
+```
+
+Con Es6 se permite ahorrar un poco mas de codigo para acceder al objeto de la siguiente forma
+
+```
+let name = "Jeyfred";
+let age = 26;
+//Es6
+obj2 = {name , age};
+
+console.log(obj2);
+```
+
+![assets/14.png](assets/14.png)
+
+___
+
+### Arrow Functions(Funciones de tipo flecha)
+
+Las Arrow Fucntions son funciones anonimas en Es5 se usaban para iterar sobre objetos en un arreglo y poder presentar o obtener los datos para esto se tenia que usar el metodo `Map` y lo que va dentro de los parentesis son las **Arrow Functions** o funciones anonimas
+
+```
+let names = [
+    { name: 'Jeyfred', age: 26},
+    { name: 'Tatiana', age: 23},
+]
+
+let listOfNames = names.map(function(item){
+    console.log(item.name);
+})
+```
+
+Con Es6 en vez de pasar directamente la funcion anonima se va a esteblecer el iterador el cual seria `item` y mediante `=>` ya se establece que es una funcion anonima 
+
+```
+let names = [
+    { name: 'Jeyfred', age: 26},
+    { name: 'Tatiana', age: 23},
+]
+
+let listOfNames2 = names.map(item => console.log(item.name));
+```
+
+y esta seria una tercer forma de obtener los valores
+
+```
+let names = [
+    { name: 'Jeyfred', age: 26},
+    { name: 'Tatiana', age: 23},
+]
+
+let listOfNames3 = names.map(({name, age}) => console.log(name, age));
+```
+
+![assets/15.png](assets/15.png)
+
+___
+
+### Promises (Promesas)
+
+Con estas se trabaja lo que es el asincronismo, quiere decir que va a ejecutar elemento por elemento y solucionar un problema en los **callback** al cual le llamaba **callback hell**, era ejecutar llamados en cascada y anidacion de muchos elemetos que hacia mas dificil leer el codigo.
+
+Las promesas lo que inidican es que algo va a suceder, segun lo asigne la persona que esta programando, ahora mediante una **arrow function** se establece la promesa, estas utilizan tambien dos metodos que son **resolve** o **reject**, es decir resuelve o rechaza, en el caso de que sea cierto imprime `'Hey, todo salio bien'` y en caso contrario `'Ups, algo salio mal!'`
+
+```
+let helloPromise = () => {
+    return new Promise((resolve, reject) => {
+        if(true){
+            resolve('Hey, todo salio bien');
+        } else {
+            reject('Ups, algo salio mal!');
+        }
+    });
+}
+```
+
+y para ejecutar la funcion helloPromise debajo del codigo anterior se coloca lo siguiente teniendo en cuenta que ahora se dispone de la palabra reservada `then()` donde a traves de `response` permite obtener la respuesta y se ejecuta con un **arrow function** y un `console.log(response)` y presentar la respuesta.
+
+En caso que sea rechazada se obtiene a traves de un `catch` que captura un error y permite tambien mostrarlo en consola
+
+```
+helloPromise()
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+```
+
+tambien se pueden añadir mas respuestas en caso de que se requiera de la siguiente forma
+
+```
+helloPromise()
+    .then(response => console.log(response))
+    .then(() => console.log('hola))
+    .catch(error => console.log(error));
+```
+
+![assets/16.png](assets/16.png)
+
+Para hacerlo fallar se cambia `true` por `false` 
+
+![assets/17.png](assets/17.png)
