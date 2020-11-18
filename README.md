@@ -16,6 +16,8 @@
 
 [¿Qué se implementó en ES9?](#¿Qué-se-implementó-en-ES9)
 
+[¿Qué se implementó en ES10?](#¿Qué-se-implementó-en-ES10)
+
 Entender que modificaciones se han realizado en cada una de las versiones de la especificacion de Ecma Script la cual pertenece a estandares que ha desarrollado Ecma International, la cual es una institucion encargada de los estandares. JavaScript es el lenguaje de programacion que utiliza la especificacion Ecma Script para trabajar sobre las caracteristicas que van siendo añadidas año con año a partir del 2015 que fue lanzada la version 6, despues de que lanzaron la version 6 empezo a salir ES7, ES8, ES9, etc.
 
 **Nota:** cada version lanza nuevas caracteristicas y generalmente es lanzada en el mes de junio año tras año 
@@ -776,3 +778,111 @@ luego hacer un `console.log` para capturar cada uno de los valores
 `console.log(year, month, day);`
 
 ![assets/33.png](assets/33.png)
+
+## ¿Qué se implementó en ES10?
+
+En la version 10 lanzada en junio de 2019 se añaden nuevas caracteristicas.
+
+Dentro de la carpeta **src** crear una subcarpeta que se llame **es10** y alli el archivo **index.js**
+
+Una de las caracteristicas incorporadas es el metodo `flat` el cual permite trabajar sobre la profundidad de un array a traves de niveles aqui se imprime el array tal y como esta
+
+```
+let array = [1, 2, 3, [1, 2, 3, [1, 2, 3,]]];
+console.log(array);
+```
+
+![assets/34.png](assets/34.png)
+
+En caso que no funcione al correr el codigo se debe actualizar **nodejs**, en este [enlace](https://www.dbigcloud.com/sistemas-operativos/258-como-actualizar-node-js.html) se encuentra la explicacion, despues correr nuevamente el codigo con **Run Code**
+
+luego pasa al primer nivel utilizando el metodo `flat()`
+
+```
+let array = [1, 2, 3, [1, 2, 3, [1, 2, 3,]]];
+/* console.log(array); */
+console.log(array.flat());
+```
+
+![assets/35.png](assets/35.png)
+
+y se pueden establecer todos los niveles que se requieran segun sea la matriz
+
+```
+let array = [1, 2, 3, [1, 2, 3, [1, 2, 3,]]];
+/* console.log(array); */
+console.log(array.flat());
+```
+
+![assets/36.png](assets/36.png)
+
+Otra caracteristica añadida es el metodo `flatMap()`
+
+A continuacion se genera un array con valores del 1 al 5, lo que permite el metodo es imprimir el valor y a continuacion en este caso el valor del array multiplicado por 2
+
+```
+let array = [1, 2, 3, 4, 5];
+
+console.log(array.flatMap(value => [value, value * 2]));
+```
+
+![assets/37.png](assets/37.png)
+
+Otro metodo agregado es `trimStart` el cual permite eliminar espacios en blanco en un string
+
+```
+let hello = `            hello world`;
+console.log(hello);
+console.log(hello.trimStart());
+```
+
+![assets/38.png](assets/38.png)
+
+El otro metodo es `trimEnd` el cual permite eliminar espacios en blanco al finalizar un string
+
+```
+let hello = `hello world              `;
+console.log(hello);
+console.log(hello.trimEnd());
+```
+
+![assets/39.png](assets/39.png)
+
+Otra caracteristica que añadio es que por ejemplo anteriormente para usar Async await, una de las formas de capturar errores era pasando el valor (error) despues de la palabra catch de esta forma
+
+```
+try{
+
+}catch(error){
+    error
+}
+```
+Ahora se puede acceder a error sin tener que pasarlo como un parametro de catch asi 
+
+```
+try{
+
+}catch{
+    error
+}
+```
+
+Otra caracteristica es `Object.fromEntries()` que convierte un arreglo a un objeto
+
+```
+let entries = [["name", "Jeyfred"], ["age", 26]]
+
+console.log(Object.fromEntries(entries));
+```
+
+![assets/40.png](assets/40.png)
+
+La otra caracteristica añadida es poder acceder a la descripcion de un elemento de tipo simbolo
+
+```
+let mySymbol = `My Symbol`;
+let symbol = Symbol(mySymbol);
+console.log(symbol.description);
+```
+
+![assets/42.png](assets/42.png)
