@@ -1,5 +1,7 @@
 # ES6+
 
+## Tabla de contenido
+
 [Default Params y Concatenación](#Default-Params-y-Concatenación)
 
 [LET y CONST, Multilínea, Spread Operator y Desestructuración](#LET-y-CONST-Multilínea-Spread-Operator-y-Desestructuración)
@@ -110,6 +112,10 @@ console.log(epicPhrase2);
 ```
 
 ![assets/6.png](assets/6.png)
+
+<div align="right">
+  <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
+</div>
 
 ## LET y CONST, Multilínea, Spread Operator y Desestructuración
 
@@ -254,6 +260,10 @@ console.log(a);
 
 ![assets/13.png](assets/13.png)
 
+<div align="right">
+  <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
+</div>
+
 ## Arrow Functions, Promesas y Parámetros en objetos
 
 Anteriormente para crear un objeto se debe acceder a la variable y a la propiedad de esta forma
@@ -365,6 +375,10 @@ helloPromise()
 Para hacerlo fallar se cambia `true` por `false` 
 
 ![assets/17.png](assets/17.png)
+
+<div align="right">
+  <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
+</div>
 
 ## Clases, Módulos y Generadores
 
@@ -484,6 +498,10 @@ console.log(generatorHello.next().value);
 
 Hasta aqui vienen las caracteristicas añadidas de ES6 la cual salio en el año 2015
 
+<div align="right">
+  <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
+</div>
+
 ## ¿Qué se implementó en ES7?
 
 En la version 7 lanzada en junio de 2016 se establecieron nuevas funciones las cuales son include y operaciones en forma exponencial para esto, dentro de la carpeta **src** crear una subcarpeta llamada **es7** y dentro de la carpeta crear un archivo llamado **index.js**
@@ -511,6 +529,10 @@ console.log(result);
 ```
 
 ![assets/22.png](assets/22.png)
+
+<div align="right">
+  <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
+</div>
 
 ## ¿Qué se implementó en ES8?
 
@@ -585,6 +607,10 @@ console.log(string.padEnd(12,' -----'));
 
 ![assets/26.png](assets/26.png)
 
+<div align="right">
+  <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
+</div>
+
 ## Async Await
 
 Lo primero que se debe hacer es generar una constante y nombrar la funcion `helloWorld`, despues un arrow function y crear una promesa.
@@ -653,6 +679,10 @@ anotherFunction();
 Si se quiere capturar un error cambiar `true` por `false`
 
 Para entender mejor estos conceptos visitar el siguiente [enlace](https://platzi.com/tutoriales/1789-asincronismo-js/5063-las-promesas-y-async-await-logicamente-no-son-iguales-y-te-explico-el-porque/)
+
+<div align="right">
+  <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
+</div>
 
 ## ¿Qué se implementó en ES9?
 
@@ -779,6 +809,10 @@ luego hacer un `console.log` para capturar cada uno de los valores
 
 ![assets/33.png](assets/33.png)
 
+<div align="right">
+  <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
+</div>
+
 ## ¿Qué se implementó en ES10?
 
 En la version 10 lanzada en junio de 2019 se añaden nuevas caracteristicas.
@@ -886,3 +920,7 @@ console.log(symbol.description);
 ```
 
 ![assets/42.png](assets/42.png)
+
+<div align="right">
+  <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
+</div>
